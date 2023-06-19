@@ -69,7 +69,7 @@ app.post('/create-contact', function(req, res) {
         name: req.body.name,
         phone: req.body.phone
     })
-    return ;
+    return res.redirect('back');
     
 });
 
