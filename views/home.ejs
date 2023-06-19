@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/home.css">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- Font Awsome Library -->
+    <script src="https://kit.fontawesome.com/7e64fbe894.js" crossorigin="anonymous"></script>
+    <title><%= title %></title>
+</head>
+<body>
+    <div class="header">
+        <i class="fa-solid fa-address-book"></i>
+        <h1>My Contact List</h1>
+    </div>
+    <div>
+        <ul>
+            <%for(let contact of contact_list ) { %>
+                <div class="contact-container">
+                    <li>
+                        <p><%= contact.name %></p>
+                        <p><%= contact.phone %></p>
+                    </li>
+                    <a href="/delete-contact/?id=<%= contact._id %>">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </a>
+                </div>
+             <% } %>   
+        </ul>
+    </div>
+
+    <form action="/create-contact" method="post">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="phone" placeholder="Phone" required>
+
+        <button type="submit">Add Contact</button>
+    </form>
+
+    <script src="js/home.js"></script>
+</body>
+</html>
